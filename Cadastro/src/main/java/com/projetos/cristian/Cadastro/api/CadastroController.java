@@ -4,6 +4,9 @@ import com.projetos.cristian.Cadastro.dto.FuncionarioDto;
 import com.projetos.cristian.Cadastro.service.CadastroService;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -11,7 +14,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.URI;
 
 @RestController
-@RequestMapping(name = "/cadastro")
+//@RequestMapping(name = "/cadastro")
 public class CadastroController {
 
     @Autowired
@@ -25,8 +28,13 @@ public class CadastroController {
         return ResponseEntity.ok(funcionario);
     }
 
+    @GetMapping(value = "/listar")
+    public Page<FuncionarioDto> listaFuncionarios(@PageableDefault(size = 10) Pageable pagina) {
+        return cadastroService.listarFuncionarios(pagina);
+    }
 
-    @PostMapping(value = "/funcionario")
+
+    @PostMapping(value = "/save/funcionario")
     public ResponseEntity<FuncionarioDto> saveFuncionario(@RequestBody FuncionarioDto dto, UriComponentsBuilder uriBuilder) {
         FuncionarioDto funcionario = cadastroService.saveFuncionario(dto);
 
@@ -34,6 +42,5 @@ public class CadastroController {
 
         return ResponseEntity.created(endereco).body(funcionario);
     }
-
 
 }

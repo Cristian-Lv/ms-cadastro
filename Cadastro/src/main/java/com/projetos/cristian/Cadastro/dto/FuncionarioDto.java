@@ -1,7 +1,6 @@
 package com.projetos.cristian.Cadastro.dto;
 
-import com.projetos.cristian.Cadastro.model.Cargos;
-import com.projetos.cristian.Cadastro.model.Funcionario;
+import com.projetos.cristian.Cadastro.model.Cargo;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,8 +13,8 @@ public class FuncionarioDto {
     private Long id;
     private String name;
     private String cpf;
-    private Cargos cargos;
-    private LocalDateTime dadaCadastro;
+    private Cargo cargo;
+    private LocalDateTime dataCadastro;
 
 
 //    public Funcionario converte(Funcionario funcionario) {

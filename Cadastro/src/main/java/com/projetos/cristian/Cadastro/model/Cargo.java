@@ -1,6 +1,6 @@
 package com.projetos.cristian.Cadastro.model;
 
-public enum Cargos {
+public enum Cargo {
 
     FUNCIONARIO,
     GERENTE,

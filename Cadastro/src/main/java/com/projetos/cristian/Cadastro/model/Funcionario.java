@@ -1,6 +1,7 @@
 package com.projetos.cristian.Cadastro.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -9,7 +10,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -26,7 +26,7 @@ public class Funcionario {
     @Column(name = "id_funcionario")
     private Long id;
 
-    @NotNull
+    @NotBlank
     @Column(name = "nome")
     private String name;
 
@@ -36,7 +36,9 @@ public class Funcionario {
     private String cpf;
 
     @Column(name = "cargo")
-    private Cargos cargo;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private Cargo cargo;
 
     @Column(name = "data_cadastro")
     private LocalDateTime dataCadastro;
