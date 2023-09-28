@@ -17,14 +17,4 @@ public class FuncionarioDto {
     private LocalDateTime dataCadastro;
 
 
-//    public Funcionario converte(Funcionario funcionario) {
-//        funcionario.setName(this.getName());
-//        funcionario.setCpf(this.getCpf());
-//        funcionario.setCargo(Cargos.FUNCIONARIO);
-//        funcionario.setDataCadastro(LocalDateTime.now());
-//
-//
-//        return funcionario;
-//    }
-
 }
