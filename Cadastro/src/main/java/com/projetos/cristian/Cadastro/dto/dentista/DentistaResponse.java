@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class DentistaResponse {
-    private String nome;
+    private String cpf;
     private String cro;
     private Especializacao especializacao;
 

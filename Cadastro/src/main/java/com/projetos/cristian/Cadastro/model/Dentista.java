@@ -1,5 +1,6 @@
 package com.projetos.cristian.Cadastro.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -25,8 +26,9 @@ public class Dentista {
     @Column(name = "especializacao")
     private Especializacao especializacao;
 
-    @ManyToOne
-    @JoinColumn(name = "funcionario_cpf_funcionario", referencedColumnName = "cpf")
-    private Funcionario funcionario;
+//    @ManyToOne
+//    @JoinColumn(name = "funcionario_cpf_funcionario", referencedColumnName = "cpf")
+//    @JsonIgnore
+//    private Funcionario funcionario;
 
 }

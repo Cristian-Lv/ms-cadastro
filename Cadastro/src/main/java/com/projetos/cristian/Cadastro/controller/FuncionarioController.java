@@ -19,10 +19,9 @@ import java.net.URI;
 @RequestMapping("/servico-funcionario")
 public class FuncionarioController {
 
-
     private final FuncionarioServiceImpl funcionarioService;
 
-    @GetMapping(value = "/lista")
+    @GetMapping(value = "/listar")
     public Page<Funcionario> listarFuncionarios() {
         Pageable pageable = PageRequest.of(0, 10);
 
