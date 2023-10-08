@@ -2,48 +2,34 @@ package com.projetos.cristian.Cadastro.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
-@Entity
-@Table(name = "funcionario")
-@Getter
-@Setter
-@NoArgsConstructor
+@Entity(name = "funcionarios")
+@Table(name = "funcionarios")
+@Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Funcionario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY ,generator = "funcionario_id_funcionario_seq")
-    @SequenceGenerator(name = "funcionario_id_funcionario_seq", sequenceName = "funcionario_id_funcionario_seq", allocationSize = 1)
-    @Column(name = "id_funcionario")
-    private Long id;
-
-    @NotBlank
-    @Column(name = "nome")
-    private String name;
-
-    @NotEmpty
     @CPF
-    @Column(name = "cpf", unique = true)
-    @Size(message = "CPF invalido")
+    @Column(name = "cpf", length = 11, unique = true)
     private String cpf;
 
-    @Column(name = "cargo")
+    @NotBlank
+    @Column(name = "nome_completo")
+    private String nome;
+
     @NotNull
+    @Column(name = "cargo",length = 100)
     @Enumerated(EnumType.STRING)
     private Cargo cargo;
 
     @Column(name = "data_cadastro")
-    private LocalDateTime dataCadastro;
-
+    private LocalDate dataCadastro;
 
 }
